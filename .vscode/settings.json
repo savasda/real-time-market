@@ -1,0 +1,22 @@
+{
+  "eslint.useFlatConfig": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "**/node_modules/**",
+    "**/.pnpm/**"
+  ],
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.autoImportFileExcludePatterns": [
+    "**/node_modules/**",
+    "**/.pnpm/**"
+  ],
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ]
+}

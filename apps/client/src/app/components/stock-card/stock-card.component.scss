@@ -1,0 +1,150 @@
+.stock-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.2rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.625rem 1.125rem rgb(0 0 0 / 10%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 13.75rem;
+  gap: 1rem;
+
+  &--up {
+    background-color: var(--color-state-up-bg);
+    color: var(--color-text-on-dark);
+  }
+
+  &--down {
+    background-color: var(--color-state-down-bg);
+    color: var(--color-text-on-dark);
+  }
+
+  &--neutral {
+    background-color: var(--color-surface-neutral);
+    color: var(--color-text-primary);
+  }
+
+  &--off {
+    background-color: var(--color-surface-off);
+    color: rgb(var(--color-text-base-raw) / 55%);
+    filter: grayscale(0.6);
+  }
+
+  &:hover {
+    transform: translateY(-0.1875rem);
+    box-shadow: 0 0.875rem 1.625rem rgb(0 0 0 / 15%);
+  }
+
+  &--off:hover {
+    transform: none;
+    box-shadow: 0 0.625rem 1.125rem rgb(0 0 0 / 10%);
+  }
+
+  &__identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  &__symbol {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  &__name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__price {
+    font-size: 2.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: baseline;
+    gap: 0.2rem;
+  }
+
+  &__currency {
+    opacity: 0.85;
+  }
+
+  &__delta {
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    color: rgb(var(--color-text-base-raw) / 75%);
+  }
+
+  &__delta--positive {
+    color: var(--color-delta-positive);
+  }
+
+  &__delta--negative {
+    color: var(--color-delta-negative);
+  }
+
+  &__delta-value {
+    font-size: 1.05rem;
+  }
+
+  &__delta-percent {
+    opacity: 0.85;
+  }
+
+  &__stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+
+    &--desktop {
+      display: none;
+    }
+  }
+
+  &__label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    opacity: 0.7;
+    text-transform: uppercase;
+  }
+
+  &__value {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
+
+@media (width >= 48rem) {
+  .stock-card {
+    &__stat--desktop {
+      display: flex;
+    }
+
+    &__stats {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

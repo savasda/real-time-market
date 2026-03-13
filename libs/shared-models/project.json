@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "shared-models",
+  "projectType": "library",
+  "sourceRoot": "libs/shared-models/src",
+  "tags": ["type:lib", "scope:shared"],
+  "targets": {
+    "test": {
+      "executor": "@angular/build:karma",
+      "options": {
+        "tsConfig": "libs/shared-models/tsconfig.spec.json"
+      }
+    }
+  }
+}

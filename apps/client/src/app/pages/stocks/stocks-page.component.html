@@ -1,0 +1,27 @@
+<main class="stocks-dashboard">
+  <div class="stocks-dashboard__container">
+    <header class="stocks-dashboard__header">
+      <h1 class="stocks-dashboard__title">Market</h1>
+      <p class="stocks-dashboard__subtitle">Track your favorite stocks in real-time.</p>
+    </header>
+
+    @if (!hasAnyActiveCard()) {
+      <div class="stocks-dashboard__notice">
+        All cards are OFF. Turn on any card to continue updates.
+      </div>
+    }
+
+    @if (isLoading() && hasAnyActiveCard()) {
+      <div class="stocks-dashboard__loader">
+        <span class="stocks-dashboard__spinner"></span>
+        {{ loaderMessage() }}
+      </div>
+    }
+
+    <section class="stocks-dashboard__grid">
+      @for (card of cards(); track card.symbol) {
+        <app-stock-card [card]="card" (toggled)="toggleCard($event)" />
+      }
+    </section>
+  </div>
+</main>

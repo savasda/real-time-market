@@ -1,0 +1,15 @@
+// Root tsconfig — extends the NX workspace base config.
+// Each project (apps/client, apps/server, libs/*) has its own tsconfig
+// that extends tsconfig.base.json with project-specific settings.
+// This file exists for IDE support and tooling compatibility.
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    { "path": "./apps/client/tsconfig.json" },
+    { "path": "./apps/server/tsconfig.json" },
+    { "path": "./libs/shared-models/tsconfig.json" },
+    { "path": "./libs/ui/tsconfig.json" },
+    { "path": "./libs/utils/tsconfig.json" }
+  ]
+}

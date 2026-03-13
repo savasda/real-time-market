@@ -1,0 +1,86 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  background: var(--color-surface-app);
+  color: var(--color-text-primary);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.stocks-dashboard {
+  min-height: 100dvh;
+  padding: 1rem;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    margin: 0.5rem 0 0;
+    color: var(--color-text-secondary);
+  }
+
+  &__loader {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--color-surface-notice);
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+
+  &__spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid currentcolor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    flex-shrink: 0;
+  }
+
+  &__notice {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--color-surface-notice);
+    color: var(--color-text-notice);
+    font-weight: 600;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (width >= 768px) {
+  .stocks-dashboard {
+    padding: 1.5rem;
+
+    &__grid {
+      gap: 1.25rem;
+    }
+  }
+}

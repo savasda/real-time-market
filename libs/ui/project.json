@@ -1,0 +1,16 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "ui",
+  "projectType": "library",
+  "sourceRoot": "libs/ui/src",
+  "tags": ["type:lib", "scope:ui"],
+  "targets": {
+    "test": {
+      "executor": "@angular/build:karma",
+      "options": {
+        "tsConfig": "libs/ui/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss"
+      }
+    }
+  }
+}

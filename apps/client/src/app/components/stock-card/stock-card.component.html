@@ -1,0 +1,59 @@
+@let cardData = card();
+@let isEnabled = cardData.isEnabled;
+@let trend = cardData.trend;
+@let currentPrice = cardData.currentPrice | number: '1.2-2';
+@let change = cardData.change | number: '1.2-2';
+@let changePercent = cardData.changePercent | number: '1.2-2';
+
+<article
+  class="stock-card"
+  [class.stock-card--up]="isEnabled && trend === stockTrend.Up"
+  [class.stock-card--down]="isEnabled && trend === stockTrend.Down"
+  [class.stock-card--neutral]="isEnabled && trend === stockTrend.Neutral"
+  [class.stock-card--off]="!isEnabled"
+>
+  <div class="stock-card__identity">
+    <span class="stock-card__symbol">{{ cardData.symbol }}</span>
+    <span class="stock-card__name">{{ cardData.name }}</span>
+  </div>
+
+  <div class="stock-card__body">
+    <div class="stock-card__price">
+      <span class="stock-card__currency">$</span>{{ currentPrice }}
+    </div>
+
+    <div
+      class="stock-card__delta"
+      [class.stock-card__delta--positive]="cardData.change >= 0"
+      [class.stock-card__delta--negative]="cardData.change < 0"
+    >
+      <span class="stock-card__delta-value">
+        {{ cardData.change >= 0 ? '+' : '' }}{{ change }}
+      </span>
+      <span class="stock-card__delta-percent">({{ changePercent }}%)</span>
+    </div>
+  </div>
+
+  <div class="stock-card__stats">
+    <div class="stock-card__stat">
+      <span class="stock-card__label">Day High</span>
+      <span class="stock-card__value">${{ cardData.dailyHigh | number: '1.2-2' }}</span>
+    </div>
+    <div class="stock-card__stat">
+      <span class="stock-card__label">Day Low</span>
+      <span class="stock-card__value">${{ cardData.dailyLow | number: '1.2-2' }}</span>
+    </div>
+    <div class="stock-card__stat stock-card__stat--desktop">
+      <span class="stock-card__label">52W High</span>
+      <span class="stock-card__value">${{ cardData.week52High | number: '1.2-2' }}</span>
+    </div>
+    <div class="stock-card__stat stock-card__stat--desktop">
+      <span class="stock-card__label">52W Low</span>
+      <span class="stock-card__value">${{ cardData.week52Low | number: '1.2-2' }}</span>
+    </div>
+  </div>
+
+  <div class="stock-card__control">
+    <app-stock-toggle [formControl]="toggleControl" [labelOn]="'ON'" [labelOff]="'OFF'" />
+  </div>
+</article>

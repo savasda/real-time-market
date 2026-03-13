@@ -1,0 +1,18 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "@stock-app/shared-models": ["libs/shared-models/src/index.ts"],
+      "@stock-app/ui": ["libs/ui/src/index.ts"],
+      "@stock-app/utils": ["libs/utils/src/index.ts"]
+    }
+  }
+}

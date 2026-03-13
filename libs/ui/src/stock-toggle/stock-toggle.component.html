@@ -1,0 +1,16 @@
+<button
+  type="button"
+  class="stock-toggle"
+  [class.stock-toggle--on]="value"
+  [class.stock-toggle--off]="!value"
+  [attr.aria-pressed]="value"
+  [attr.aria-label]="value ? labelOn() : labelOff()"
+  [disabled]="isDisabled"
+  (click)="toggle()"
+>
+  <span class="stock-toggle__slider" aria-hidden="true"></span>
+  <span class="stock-toggle__labels">
+    <span class="stock-toggle__label stock-toggle__label--on">{{ labelOn() }}</span>
+    <span class="stock-toggle__label stock-toggle__label--off">{{ labelOff() }}</span>
+  </span>
+</button>
